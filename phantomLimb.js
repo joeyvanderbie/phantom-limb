@@ -20,6 +20,9 @@ window.phantomLimb = (function() {
 		// In this case we'll only need the one
 		if (!('touches' in newEvent)) newEvent.touches = [newEvent];
 
+		//jqtouch compatibility rule
+		if (!('changedTouches' in newEvent)) newEvent.changedTouches = [newEvent];
+		
 		// And and they have "page" coordinates, which I guess are just like screen coordinates
 		if (!('pageX' in newEvent)) newEvent.pageX = originalEvent.clientX;
 		if (!('pageY' in newEvent)) newEvent.pageY = originalEvent.clientY;
@@ -103,6 +106,11 @@ window.phantomLimb = (function() {
 		pointer.style.top = '9999em';
 		pointer.style.zIndex = 9999;
 
+		//jqtouch compatibility css hacks
+		pointer.style.display = 'block';
+		pointer.style.background = 'none';
+		pointer.style.width = '347px';
+		
 		pointer.style.opacity = options.opacity;
 		pointer.style.WebkitTransformOrigin = options.x + 'px ' + options.y + 'px';
 		pointer.style.MozTransformOrigin = options.x + 'px ' + options.y + 'px';
