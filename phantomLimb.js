@@ -1,6 +1,7 @@
 // Phantom Limb
 // Simulate touch events in desktop browsers
 // Brian Carstensen <brian.carstensen@gmail.com>
+// Edit by Joey van der Bie <JoeyvanderBie@gmail.com>
 
 window.phantomLimb = (function() {
 	debug = false;
